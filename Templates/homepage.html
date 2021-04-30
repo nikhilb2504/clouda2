@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home Page</title>
+	</head>
+	
+	<body>
+        <h1>Hi, {{username}}</h1>
+        <a href="logout">Log Out</a>
+
+        <br>
+        <p>*************************************************************************************************</p>
+        <h2>Current Subscriptions by <b>{{username}}</b></h2>
+        <div>
+            {%if sub_songs%}
+                {% for song in sub_songs %}
+
+                <div>
+                    <img src="{{ song['s3_url'] }}" width="150" height="150">
+                </div>
+                <div>
+                    <p><b>Title: </b> {{ song['title'] }}  <b>Artist: </b> {{ song['artist'] }} <b>Year: </b> {{ song['year'] }} </p>
+
+
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="hidden" value="{{song['title']}}" name = del_title>
+                        <input type="hidden" value="{{song['artist']}}" name = del_artist>
+                        <input type="hidden" value="{{song['year']}}" name = del_year>
+                        <input type="hidden" value="{{song['img_url']}}" name = del_img_url>
+                        <button type="submit" name="deleteSubscription">Remove</button>
+                    </form>
+                </div>
+
+            <p>**************************************************************</p>
+
+                {% endfor %}
+            {%endif%}
+        </div>
+        <p>*************************************************************************************************</p>
+		<form method="POST" enctype="multipart/form-data">
+			<h2>Query Section</h2>
+  			<div class="container">
+    				<label for="title"><b>Title</b></label>
+    				<input 
+						type="text" 
+						placeholder="Enter Title" 
+						id="title" 
+						name="title"
+						>
+
+    				<label for="artist"><b>Artist</b></label>
+   		 		    <input 
+						type="text" 
+						placeholder="Enter Artist" 
+						id="artist" 
+						name="artist"
+						>
+
+                    <label for="year"><b>Year</b></label>
+   		 		    <input 
+						type="number" 
+						placeholder="Enter Year" 
+						id="year" 
+						name="year"
+						>
+
+    				<button type="submit" name="showSongs">Query</button>
+  			</div>
+            <div>
+                <p>{{text}}</p>
+            </div>  
+        </form>
+        <div>
+            {%if songs%}
+                {% for song in songs %}
+                    <img src="{{ song['img_url'] }}" width="150" height="150">
+                    <p><b>Title: </b> {{ song['title'] }}  <b>Artist: </b> {{ song['artist'] }} <b>Year: </b> {{ song['year'] }} </p>
+                        
+                    <form method="POST" enctype="multipart/form-data">
+                        <button type="submit" name="addSubscription" class="btn btn-primary" id = "addSubscription">Subscribe</button>
+                        <input type="hidden" value="{{song['title']}}" name = title>
+                        <input type="hidden" value="{{song['artist']}}" name = artist>
+                        <input type="hidden" value="{{song['year']}}" name = year>
+                        <input type="hidden" value="{{song['img_url']}}" name = img_url>
+                    </form>
+                    <p>**************************************************************</p>
+
+                {% endfor %}
+            {%endif%}
+        </div>
+        <p*************************************************************************************************p>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sign-Up Page</title>
+	</head>
+	
+	<body>
+        <form method="POST" enctype="multipart/form-data">
+            <h2>Register Page</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    
+                />
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter Username"
+                    
+                />
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    
+                />
+            </div>
+            <h4>{{message}}</h4>
+            <button type="submit" class="btn btn-primary">Sign-Up</button>
+            <a href="/login">Go Back</a>
+        </form>
+    </body>
+</html>

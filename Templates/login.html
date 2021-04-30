@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login Page</title>
+	</head>
+	
+	<body>
+		<form method="POST" enctype="multipart/form-data">
+			<h2>Login Page</h2>
+  			<div class="container">
+    				<label for="emailId"><b>Email</b></label>
+    				<input 
+						type="text" 
+						placeholder="Enter Email" 
+						id="emailId" 
+						name="emailId"
+						>
+
+    				<label for="psw"><b>Password</b></label>
+   		 		    <input 
+						type="password" 
+						placeholder="Enter Password" 
+						id="psw" 
+						name="psw"
+						>
+
+    				<button type="submit">Login</button>
+					<a href="/signup">Register</a>
+					<h4>
+						{{message}}
+					</h4>
+  			</div>
+		</form>
+	</body>
+</html>
